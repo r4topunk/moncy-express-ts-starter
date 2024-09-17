@@ -4,16 +4,16 @@ Serviço para redirecionamento de URLs.
 
 ## Todo
 
-[x] Criar rota de redirect com UUID
-  [x] Redirecionar o usuário a partir do UUID informado
-[ ] Adicionar proteção de JWT
-  [ ] JWT sem expiração
-  [ ] JWT deve ser salvo no banco de dados
-  [ ] JWT deve ser usado para gerar a URL do NFC
-  [ ] JWT deve conter o valor da URL
-  [ ] JWT deve ser passado no lugar de UUID
-    [ ] Validar JWT
-    [ ] Se o JWT for válido, utilizar o UUID dele para buscar no DB
+- [x] Criar rota de redirect com UUID
+  - [x] Redirecionar o usuário a partir do UUID informado
+- [ ] Adicionar proteção de JWT
+  - [ ] JWT sem expiração
+  - [ ] JWT deve ser salvo no banco de dados
+  - [ ] JWT deve ser usado para gerar a URL do NFC
+  - [ ] JWT deve conter o valor da URL
+  - [ ] JWT deve ser passado no lugar de UUID
+    - [ ] Validar JWT
+    - [ ] Se o JWT for válido, utilizar o UUID dele para buscar no DB
 
 ## Objetivo
 
