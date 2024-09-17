@@ -19,10 +19,7 @@ app.use(compression());
 app.use(helmet());
 app.disable('x-powered-by');
 
-app.get('/', (req, res) => res.redirect('/api/'));
-
-app.use('/api', routes);
-
+app.use('/', routes);
 app.use(errorHandler);
 
 app.listen(preferredPortNumber, () => {
