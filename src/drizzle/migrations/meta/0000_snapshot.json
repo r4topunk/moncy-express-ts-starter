@@ -1,27 +1,22 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "2f18b4b6-4b23-4261-9749-b47c8f33ee52",
+  "id": "aa641d65-23ac-4a1e-ab9e-def9124762cc",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "users": {
-      "name": "users",
+    "redirects": {
+      "name": "redirects",
       "schema": "",
       "columns": {
-        "id": {
-          "name": "id",
-          "type": "varchar(14)",
+        "uuid": {
+          "name": "uuid",
+          "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "email": {
-          "name": "email",
+        "url": {
+          "name": "url",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -44,15 +39,7 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "users_email_unique": {
-          "name": "users_email_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
-        }
-      }
+      "uniqueConstraints": {}
     }
   },
   "enums": {},
