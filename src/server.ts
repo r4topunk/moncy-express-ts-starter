@@ -19,9 +19,9 @@ app.use(compression());
 app.use(helmet());
 app.disable('x-powered-by');
 
-app.get('/', (req, res) => res.redirect('/v1/'));
+app.get('/', (req, res) => res.redirect('/api/'));
 
-app.use('/v1', routes);
+app.use('/api', routes);
 
 app.use(errorHandler);
 
