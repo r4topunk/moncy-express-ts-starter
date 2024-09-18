@@ -14,6 +14,18 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/routes', async (req, res) => {
+  try {
+    const result = await db
+      .select()
+      .from(redirects)
+
+    res.status(httpStatus.OK).json(result)
+  } catch (error) {
+    
+  }
+})
+
 router.get('/redirect/:uuid', async (req, res) => {
   try {
     const { uuid } = req.params;
