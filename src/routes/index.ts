@@ -23,8 +23,8 @@ router.get('/routes', async (req, res) => {
       .select()
       .from(redirects)
 
-    const getHost = () => `${req.protocol}://${req.get('host')}`
-    const buildLink = (jwt: Record<string, any>) => `${getHost()}/redirect/jwt/${encodeJWT({ jwt: jwt.uuid })}`;
+    const BASE_HOST = `${req.protocol}://${req.get('host')}`;
+    const buildLink = (jwt: Record<string, any>) => `${BASE_HOST}/redirect/jwt/${encodeJWT({ jwt: jwt.uuid })}`;
     const ans = result.map(row => ({
       ...row,
       link: buildLink(row)
@@ -61,9 +61,6 @@ router.get('/redirect/:uuid', async (req, res) => {
 });
 
 router.get('/redirect/jwt/:jwt', async (req, res) => {
-  interface CustomRequest extends Request {
-    token: string | JwtPayload;
-  }
   try {
     const { uuid } = decodeJWT(req.params.jwt)
 
