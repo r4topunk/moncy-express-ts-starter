@@ -6,7 +6,6 @@ import httpStatus from 'http-status';
 import { db } from '#src/drizzle/index.ts';
 import { redirects } from '#src/drizzle/schema/redirects.ts';
 import { decodeJWT, encodeJWT } from '#src/utils/JWTRoutes.ts';
-import { JwtPayload } from 'jsonwebtoken';
 import 'dotenv/config';
 
 const router = express.Router();
