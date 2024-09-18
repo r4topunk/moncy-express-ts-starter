@@ -7,6 +7,7 @@ import { db } from '#src/drizzle/index.ts';
 import { redirects } from '#src/drizzle/schema/redirects.ts';
 import { decodeJWT, encodeJWT } from '#src/utils/JWTRoutes.ts';
 import { JwtPayload } from 'jsonwebtoken';
+import 'dotenv/config';
 
 const router = express.Router();
 
@@ -22,9 +23,11 @@ router.get('/routes', async (req, res) => {
       .select()
       .from(redirects)
 
+    const getHost = () => `${req.protocol}://${req.get('host')}`
+    const buildLink = (jwt: Record<string, any>) => `${getHost()}/redirect/jwt/${encodeJWT({ jwt: jwt.uuid })}`;
     const ans = result.map(row => ({
       ...row,
-      link: `http://localhost:9500/redirect/jwt/${encodeJWT({ uuid: row.uuid })}`
+      link: buildLink(row)
     }))
 
     res.status(httpStatus.OK).json(ans)
