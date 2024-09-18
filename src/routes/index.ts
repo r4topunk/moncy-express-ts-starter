@@ -23,7 +23,7 @@ router.get('/routes', async (req, res) => {
       .from(redirects)
 
     const BASE_HOST = `${req.protocol}://${req.get('host')}`;
-    const buildLink = (jwt: Record<string, any>) => `${BASE_HOST}/redirect/jwt/${encodeJWT({ jwt: jwt.uuid })}`;
+    const buildLink = (jwt: Record<string, any>) => `${BASE_HOST}/redirect/jwt/${encodeJWT({ uuid: jwt.uuid })}`;
     const ans = result.map(row => ({
       ...row,
       link: buildLink(row)
