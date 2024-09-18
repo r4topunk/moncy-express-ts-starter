@@ -25,6 +25,6 @@ export function decodeJWT(jwtData: string): JWTCustomToken
  */
 export function encodeJWT(json: Record<string, any>): string
 {
-    const token = jwt.sign(json, JWT_SECRET_KEY);
+    const token = jwt.sign(json, JWT_SECRET_KEY, { noTimestamp: true });
     return token
 }
