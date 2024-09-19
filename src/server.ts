@@ -26,3 +26,5 @@ app.listen(preferredPortNumber, () => {
     `${appName} app started on http://localhost:${preferredPortNumber}`,
   );
 });
+
+export default app
