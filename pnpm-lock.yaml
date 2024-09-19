@@ -53,9 +53,6 @@ importers:
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
-      zod:
-        specifier: ^3.22.2
-        version: 3.22.2
     devDependencies:
       '@faker-js/faker':
         specifier: ^8.0.2

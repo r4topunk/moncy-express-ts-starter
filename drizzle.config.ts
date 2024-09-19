@@ -1,6 +1,8 @@
 import 'dotenv/config';
 import type { Config } from 'drizzle-kit';
 
+console.log("DATABASE_DIRECT_URL", process.env.DATABASE_DIRECT_URL);
+
 export default {
   schema: './src/drizzle/schema/*',
   out: './src/drizzle/migrations',
